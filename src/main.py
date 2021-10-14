@@ -25,10 +25,10 @@ def calcula_imposto():
 def calcula_desconto_extra():
     orcamento = Orcamento(600, 7)
     orcamento.aplicar_desconto_extra()
-    print(orcamento.get_valor())
+    print(orcamento.valor)
     orcamento.aprovar()
     orcamento.aplicar_desconto_extra()
-    print(orcamento.get_valor())
+    print(orcamento.valor)
 
 
 if __name__ == '__main__':

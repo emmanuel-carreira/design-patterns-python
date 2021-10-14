@@ -3,8 +3,8 @@ from src.orcamento.situacao.em_andamento import EmAndamento
 
 class Orcamento:
     def __init__(self, valor, quantidade_itens):
-        self.valor = valor
-        self.quantidade_itens = quantidade_itens
+        self._valor = valor
+        self._quantidade_itens = quantidade_itens
         self._situacao = EmAndamento()
 
     @property
@@ -27,8 +27,14 @@ class Orcamento:
     def finalizar(self):
         self.situacao.finalizar(self)
 
-    def get_valor(self):
-        return self.valor
+    @property
+    def valor(self):
+        return self._valor
 
-    def get_quantidade_itens(self):
-        return self.quantidade_itens
+    @valor.setter
+    def valor(self, novo_valor):
+        self._valor = novo_valor
+
+    @property
+    def quantidade_itens(self):
+        return self._quantidade_itens

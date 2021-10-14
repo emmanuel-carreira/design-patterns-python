@@ -7,7 +7,7 @@ class DescontoValorMaiorQueQuinhentos(Desconto):
         super().__init__(proximo)
 
     def aplica(self, orcamento: Orcamento):
-        return orcamento.get_valor()*0.05
+        return orcamento.valor*0.05
 
     def deve_aplicar(self, orcamento: Orcamento):
-        return orcamento.get_valor() > 500
+        return orcamento.valor > 500

@@ -7,7 +7,7 @@ class DescontoMaisQueCincoItens(Desconto):
         super().__init__(proximo)
 
     def aplica(self, orcamento: Orcamento):
-        return orcamento.get_valor()*0.1
+        return orcamento.valor*0.1
 
     def deve_aplicar(self, orcamento: Orcamento):
-        return orcamento.get_quantidade_itens() > 5
+        return orcamento.quantidade_itens > 5
