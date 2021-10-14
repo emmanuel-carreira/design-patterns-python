@@ -7,6 +7,7 @@ from src.orcamento.orcamento import Orcamento
 def main():
     calcula_imposto()
     calcula_desconto()
+    calcula_desconto_extra()
 
 
 def calcula_desconto():
@@ -19,6 +20,15 @@ def calcula_imposto():
     orcamento = Orcamento(100, 1)
     calculadora = CalculadoraImpostos()
     print(calculadora.calcular(orcamento, Icms()))
+
+
+def calcula_desconto_extra():
+    orcamento = Orcamento(600, 7)
+    orcamento.aplicar_desconto_extra()
+    print(orcamento.get_valor())
+    orcamento.aprovar()
+    orcamento.aplicar_desconto_extra()
+    print(orcamento.get_valor())
 
 
 if __name__ == '__main__':
