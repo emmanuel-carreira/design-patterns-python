@@ -1,5 +1,5 @@
 from .gera_pedido import GeraPedido
-
+from .invocador import Invocador
 
 def teste_pedido(*args):
     cliente = args[0]
@@ -7,7 +7,10 @@ def teste_pedido(*args):
     quantidade_itens = args[2]
 
     gera_pedido = GeraPedido(cliente, valor, quantidade_itens)
-    gera_pedido.executa()
+    invocador = Invocador(gera_pedido)
+
+    print("Espera a hora de processar...")
+    invocador.executar()
 
 
 if __name__ == "__main__":
