@@ -1,13 +1,16 @@
 from src.desconto.calculadora_descontos import CalculadoraDescontos
+from src.http.request_http import RequestHttp
 from src.imposto.calculadora_impostos import CalculadoraImpostos
 from src.imposto.icms import Icms
 from src.orcamento.orcamento import Orcamento
+from src.orcamento.registro_orcamento import RegistroOrcamento
 
 
 def main():
     calcula_imposto()
     calcula_desconto()
     calcula_desconto_extra()
+    registra_orcamento()
 
 
 def calcula_desconto():
@@ -29,6 +32,14 @@ def calcula_desconto_extra():
     orcamento.aprovar()
     orcamento.aplicar_desconto_extra()
     print(orcamento.valor)
+
+
+def registra_orcamento():
+    orcamento = Orcamento(900, 5)
+    orcamento.aprovar()
+    orcamento.finalizar()
+    registro_orcamento = RegistroOrcamento(RequestHttp())
+    registro_orcamento.registrar(orcamento)
 
 
 if __name__ == '__main__':

@@ -1,5 +1,7 @@
+from src.orcamento.situacao.finalizado import Finalizado
 from src.orcamento.situacao.situacao import Situacao
 from src.orcamento.situacao.em_andamento import EmAndamento
+
 
 class Orcamento:
     def __init__(self, valor, quantidade_itens):
@@ -26,6 +28,9 @@ class Orcamento:
 
     def finalizar(self):
         self.situacao.finalizar(self)
+
+    def is_finalizado(self):
+        return isinstance(self.situacao, Finalizado)
 
     @property
     def valor(self):
