@@ -2,6 +2,7 @@ from src.desconto.calculadora_descontos import CalculadoraDescontos
 from src.http.request_http import RequestHttp
 from src.imposto.calculadora_impostos import CalculadoraImpostos
 from src.imposto.icms import Icms
+from src.imposto.iss import Iss
 from src.orcamento.orcamento import Orcamento
 from src.orcamento.registro_orcamento import RegistroOrcamento
 
@@ -22,7 +23,7 @@ def calcula_desconto():
 def calcula_imposto():
     orcamento = Orcamento(100, 1)
     calculadora = CalculadoraImpostos()
-    print(calculadora.calcular(orcamento, Icms()))
+    print(calculadora.calcular(orcamento, Icms(Iss(None))))
 
 
 def calcula_desconto_extra():
