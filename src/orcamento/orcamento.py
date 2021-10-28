@@ -1,12 +1,13 @@
+from src.orcamento.orcavel import Orcavel
 from src.orcamento.situacao.finalizado import Finalizado
 from src.orcamento.situacao.situacao import Situacao
 from src.orcamento.situacao.em_andamento import EmAndamento
 
 
-class Orcamento:
-    def __init__(self, valor, quantidade_itens):
-        self._valor = valor
-        self._quantidade_itens = quantidade_itens
+class Orcamento(Orcavel):
+    def __init__(self):
+        self._valor = 0
+        self._itens = []
         self._situacao = EmAndamento()
 
     @property
@@ -32,6 +33,10 @@ class Orcamento:
     def is_finalizado(self):
         return isinstance(self.situacao, Finalizado)
 
+    def adicionar_item(self, item: Orcavel):
+        self._valor += item.valor
+        self._itens.append(item)
+
     @property
     def valor(self):
         return self._valor
@@ -42,4 +47,4 @@ class Orcamento:
 
     @property
     def quantidade_itens(self):
-        return self._quantidade_itens
+        return len(self._itens)
