@@ -5,6 +5,7 @@ from src.imposto.icms import Icms
 from src.imposto.iss import Iss
 from src.orcamento.item_orcamento import ItemOrcamento
 from src.orcamento.orcamento import Orcamento
+from src.orcamento.orcamento_proxy import OrcamentoProxy
 from src.orcamento.registro_orcamento import RegistroOrcamento
 
 
@@ -70,9 +71,10 @@ def compoe_orcamento():
     orcamento_antigo.adicionar_item(ItemOrcamento('Celular', 1000))
     orcamento_antigo.reprovar()
 
-    orcamento_novo = Orcamento()
+    orcamento_novo = OrcamentoProxy()
     orcamento_novo.adicionar_item(ItemOrcamento('Fone de ouvido', 100))
     orcamento_novo.adicionar_item(orcamento_antigo)
+    print(orcamento_novo.valor)
     print(orcamento_novo.valor)
 
 

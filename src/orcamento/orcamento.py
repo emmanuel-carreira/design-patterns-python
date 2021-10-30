@@ -1,3 +1,5 @@
+from time import sleep
+
 from src.orcamento.orcavel import Orcavel
 from src.orcamento.situacao.finalizado import Finalizado
 from src.orcamento.situacao.situacao import Situacao
@@ -39,6 +41,7 @@ class Orcamento(Orcavel):
 
     @property
     def valor(self):
+        sleep(3)
         return self._valor
 
     @valor.setter
